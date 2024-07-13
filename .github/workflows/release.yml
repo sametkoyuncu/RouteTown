@@ -1,0 +1,46 @@
+name: Update Package Version
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  update-package:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install jq
+        run: sudo apt-get install jq
+
+      - name: Get the release tag
+        id: get_tag
+        run: echo "::set-output name=tag::$(echo ${GITHUB_REF#refs/tags/})"
+
+      - name: Get the checksum
+        id: get_checksum
+        run: echo "::set-output name=checksum::$(curl -L -s https://github.com/sametkoyuncu/RouteTown/releases/download/${{ steps.get_tag.outputs.tag }}/RouteTown.xcframework.zip | shasum -a 256 | awk '{ print $1 }')"
+
+      - name: Update Package.swift
+        run: |
+          tag=${{ steps.get_tag.outputs.tag }}
+          checksum=${{ steps.get_checksum.outputs.checksum }}
+          sed -i '' "s|url: \"https://github.com/sametkoyuncu/RouteTown/releases/download/.*/RouteTown.xcframework.zip\"|url: \"https://github.com/sametkoyuncu/RouteTown/releases/download/$tag/RouteTown.xcframework.zip\"|" Package.swift
+          sed -i '' "s/checksum: \".*\"/checksum: \"$checksum\"/" Package.swift
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add Package.swift
+          git commit -m "Update Package.swift for release ${{ steps.get_tag.outputs.tag }}"
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
