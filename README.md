@@ -47,3 +47,9 @@ This software is provided under the RouteTown License Agreement. See the LICENSE
 - Includes methods for presenting and dismissing view controllers.
 - Tracks visited routes and handles navigation in a structured way.
 - Custom error handling with `RouteTownError`.
+
+## Author
+
+**Name:** Samet Koyuncu  
+**Email:** [sametkoyuncu@live.com](mailto:sametkoyuncu@live.com)  
+**GitHub:** [sametkoyuncu](https://github.com/sametkoyuncu)

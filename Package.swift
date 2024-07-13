@@ -1,6 +1,11 @@
 // swift-tools-version:5.3
 import PackageDescription
 
+// Package information
+// Author: Samet Koyuncu
+// Email: sametkoyuncu@live.com
+// GitHub: https://github.com/sametkoyuncu
+
 let package = Package(
     name: "RouteTown",
     platforms: [
