@@ -40,9 +40,14 @@ This software is provided under the RouteTown License Agreement. See the LICENSE
 
 ## Release Notes
 
-## v0.1.0 - Initial Release
+### v0.1.1
 
-### Features
+#### Changes
+- Made the `configure` method of the `Logger` class public.
+
+### v0.1.0 - Initial Release
+
+#### Features
 
 - Initial release of the RouteTown library.
 - Provides flexible and powerful routing mechanisms for iOS applications.
