@@ -19,8 +19,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "RouteTown",
-            url: "https://github.com/sametkoyuncu/RouteTown/releases/download/v0.1.0/RouteTown.xcframework.zip",
-            checksum: "381aa46eff3f3dba05784459dd1dda03536ec466227767dfd58bb71c6f952351"
+            url: "https://github.com/sametkoyuncu/RouteTown/releases/download/v0.1.1/RouteTown.xcframework.zip",
+            checksum: "1878e0dcb683d44be5f7497a0c33ebfa4446b218ca51d66edbf0dbdd6a75baa8"
         ),
     ]
 )
