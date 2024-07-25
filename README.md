@@ -40,6 +40,11 @@ This software is provided under the RouteTown License Agreement. See the LICENSE
 
 ## Release Notes
 
+### v0.1.2
+
+#### Changes
+- Some method parameter names have been corrected.
+
 ### v0.1.1
 
 #### Changes
